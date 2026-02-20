@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Shop 01</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f7f7f7;
-    }
-    h1 {
-      text-align: center;
-    }
-    .product {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-    }
-    .product a {
-      display: inline-block;
-      margin-top: 10px;
-      color: white;
-      background: #ee4d2d;
-      padding: 8px 12px;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Shop 01</title>
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background:#f7f7f7;
+  padding:20px;
+}
+h1{
+  text-align:center;
+}
+.product{
+  background:#fff;
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.08);
+}
+.product h3{
+  margin:0 0 6px;
+}
+.product p{
+  margin:0 0 10px;
+  color:#555;
+}
+.buy{
+  display:inline-block;
+  background:#ee4d2d;
+  color:#fff;
+  padding:8px 14px;
+  text-decoration:none;
+  border-radius:4px;
+  font-weight:bold;
+}
+</style>
 </head>
 
 <body>
 
 <h1>🛍 Shop 01</h1>
+<div id="list"></div>
 
-<div class="product">
-  <h3>Sản phẩm số 1</h3>
-  <p>Mô tả ngắn sản phẩm.</p>
-  <a href="#" target="_blank">Mua ngay</a>
-</div>
+<script>
+const PRODUCTS = [
+  {
+    name: "Sản phẩm 1",
+    desc: "Mô tả sản phẩm 1",
+    link: "https://shopee.vn/xxxxx1"
+  },
+  {
+    name: "Sản phẩm 2",
+    desc: "Mô tả sản phẩm 2",
+    link: "https://shopee.vn/xxxxx2"
+  }
+  // 👉 thêm sản phẩm mới ở đây, mỗi cái 1 dòng
+];
 
-<div class="product">
-  <h3>Sản phẩm số 2</h3>
-  <p>Mô tả ngắn sản phẩm.</p>
-  <a href="#" target="_blank">Mua ngay</a>
-</div>
+const box = document.getElementById("list");
+PRODUCTS.forEach(p => {
+  box.innerHTML += `
+    <div class="product">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <a class="buy" href="${p.link}" target="_blank">Mua ngay</a>
+    </div>
+  `;
+});
+</script>
 
 </body>
 </html>
