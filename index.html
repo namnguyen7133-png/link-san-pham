@@ -1,80 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<title>Shop Ngân An</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body{font-family:Arial;margin:10px}
-.kệ{border:1px solid #ddd;padding:10px;margin-bottom:10px;border-radius:6px}
-.admin-only{display:none;margin-top:5px;width:100%}
-.admin .admin-only{display:block}
-button{padding:8px 12px;font-size:14px}
-</style>
+  <meta charset="UTF-8">
+  <title>Cổng Shop 3 Bé</title>
 </head>
-
 <body>
+  <h2>🧧 Cổng Shop Gia Đình</h2>
 
-<div style="text-align:center;margin-bottom:10px">
-  <button onclick="unlock()">🔒 MỞ QUẢN LÝ</button>
-</div>
+  <ul>
+    <li><a href="ngan-an.html">Shop Ngân An</a></li>
+    <li><a href="minh-chau.html">Shop Minh Châu</a></li>
+    <li><a href="bich-ngoc.html">Shop Bích Ngọc</a></li>
+  </ul>
 
-<h2>🛍 Shop Ngân An (12 tuổi)</h2>
-<div id="shelves"></div>
-
-<script>
-const ADMIN_PASSWORD = "1234";
-
-/* ===== DỮ LIỆU SẢN PHẨM ===== */
-/* Mỗi kệ = 1 sản phẩm */
-const PRODUCTS = [
-  {
-    name: "🌈Patrackiy✨Satin Nơ Chuối Kẹp Nữ Đuôi Ngựa Kẹp Tóc Phụ Kiện Tóc",
-    price: "139k",
-    link: "https://s.shopee.vn/1qWiqewN68",
-    bat: 1
-  }
-];
-
-/* ===== MỞ QUẢN LÝ ===== */
-function unlock(){
-  const p = prompt("Mật khẩu quản lý:");
-  if(p === ADMIN_PASSWORD){
-    document.body.classList.add("admin");
-    alert("Đã mở quản lý");
-  }
-}
-
-/* ===== VẼ KỆ ===== */
-function render(){
-  const box = document.getElementById("shelves");
-  box.innerHTML = "";
-
-  for(let i=0;i<32;i++){
-    const p = PRODUCTS[i] || {bat:0};
-
-    if(p.bat !== 1){
-      box.innerHTML += `
-        <div class="kệ">
-          <b>Kệ ${i+1}</b><br>
-          <i>Đang nghỉ</i>
-        </div>`;
-      continue;
-    }
-
-    box.innerHTML += `
-      <div class="kệ">
-        <b>Kệ ${i+1}</b><br>
-        ${p.name} – <b>${p.price}</b><br><br>
-        <a href="${p.link}" target="_blank">👉 Mua trên Shopee</a>
-        <input class="admin-only" placeholder="Dán link Shopee khác nếu muốn">
-      </div>`;
-  }
-}
-
-render();
-</script>
-
+  <p>Dán link này lên Facebook / Zalo làm link tổng.</p>
 </body>
 </html>
