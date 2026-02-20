@@ -12,44 +12,45 @@ body{font-family:Arial;margin:10px}
 <body>
 
 <h2>🛍 Shop Minh Châu</h2>
-<div id="shelves"></div>
+<div id="shelves">Đang tải sản phẩm…</div>
 
 <script>
-const PRODUCTS = [
-  {
-    name:"Đất nặn an toàn",
-    price:"95k",
-    link:"https://shopee.vn/product/348955539/3041148970",
-    bat:1
-  }
-];
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSISgWZP_lSeRHn_QtUZB_Yro-ns2L0LGJhfCbnkRq1iiT0jqlmLTVfu96GI-ROc_qF3pcwZOWhjpLS/pub?gid=1175660321&single=true&output=csv";
 
-function render(){
-  const box = document.getElementById("shelves");
-  box.innerHTML = "";
+fetch(CSV_URL)
+  .then(res => res.text())
+  .then(text => {
+    const rows = text.trim().split("\n");
+    const data = rows.slice(1); // bỏ header
 
-  for(let i=0;i<32;i++){
-    const p = PRODUCTS[i];
+    let html = "";
 
-    if(!p || p.bat !== 1){
-      box.innerHTML += `
+    data.slice(0, 4).forEach((row, i) => {
+      const c = row.split(",");
+
+      const name  = c[1] || "Chưa có tên";
+      const price = c[2] || "";
+      const link  = c[4] || "#";
+
+      html += `
         <div class="kệ">
           <b>Kệ ${i+1}</b><br>
-          <i>Đang nghỉ</i>
-        </div>`;
-      continue;
+          ${name} – ${price}<br>
+          <a href="${link}" target="_blank">👉 Mua</a>
+        </div>
+      `;
+    });
+
+    if(html === ""){
+      html = "<i>Chưa có sản phẩm</i>";
     }
 
-    box.innerHTML += `
-      <div class="kệ">
-        <b>Kệ ${i+1}</b><br>
-        ${p.name} – ${p.price}<br>
-        <a href="${p.link}" target="_blank">👉 Mua</a>
-      </div>`;
-  }
-}
-
-render();
+    document.getElementById("shelves").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("shelves").innerHTML = "Lỗi tải dữ liệu";
+    console.error(err);
+  });
 </script>
 
 </body>
