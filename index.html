@@ -2,17 +2,74 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Cổng Shop 3 Bé</title>
+  <title>Shop NGÂN AN</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      margin: 12px;
+    }
+    h2{
+      margin-bottom: 5px;
+    }
+    .ke{
+      border: 1px solid #ddd;
+      padding: 8px;
+      margin-bottom: 6px;
+    }
+    a{
+      color: #0066cc;
+      text-decoration: none;
+    }
+    button{
+      padding: 6px 10px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-  <h2>🧧 Cổng Shop Gia Đình</h2>
 
-  <ul>
-    <li><a href="ngan-an.html">Shop Ngân An</a></li>
-    <li><a href="minh-chau.html">Shop Minh Châu</a></li>
-    <li><a href="bich-ngoc.html">Shop Bích Ngọc</a></li>
-  </ul>
+<h2>🛍 SHOP NGÂN AN</h2>
+<p><b>Link dự phòng online</b> (dán Facebook / Zalo):</p>
+<p>
+  https://TEN-GITHUB.github.io/link-san-pham/ngan-an/
+</p>
 
-  <p>Dán link này lên Facebook / Zalo làm link dự phòng tổng.</p>
+<hr>
+
+<button onclick="toggle()">🔽 Mở / Thu gọn sản phẩm</button>
+
+<div id="khuSanPham" style="display:none">
+
+  <!-- TỐI ĐA 18 SẢN PHẨM -->
+
+  <div class="ke">
+    <b>Sản phẩm 1</b><br>
+    <a href="LINK-SHOPEE-1" target="_blank">Mở Shopee</a>
+  </div>
+
+  <div class="ke">
+    <b>Sản phẩm 2</b><br>
+    <a href="LINK-SHOPEE-2" target="_blank">Mở Shopee</a>
+  </div>
+
+  <div class="ke">
+    <b>Sản phẩm 3</b><br>
+    <a href="LINK-SHOPEE-3" target="_blank">Mở Shopee</a>
+  </div>
+
+  <!-- copy thêm kệ cho đủ, KHÔNG quá 18 -->
+
+</div>
+
+<script>
+function toggle(){
+  const k = document.getElementById("khuSanPham");
+  k.style.display = (k.style.display === "none") ? "block" : "none";
+}
+</script>
+
 </body>
 </html>
