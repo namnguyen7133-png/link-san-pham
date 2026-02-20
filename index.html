@@ -2,75 +2,70 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Shop NGÂN AN</title>
-
+  <title>Trang cổng quản lý shop</title>
   <style>
     body{
       font-family: Arial, sans-serif;
-      margin: 12px;
+      margin: 14px;
     }
     h2{
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
-    .ke{
-      border: 1px solid #ddd;
-      padding: 8px;
+    ul{
+      padding-left: 18px;
+    }
+    li{
       margin-bottom: 6px;
     }
     a{
-      color: #0066cc;
       text-decoration: none;
-    }
-    button{
-      padding: 6px 12px;
-      margin: 10px 0;
-      cursor: pointer;
+      color: #0066cc;
     }
   </style>
 </head>
 
 <body>
 
-<h2>🛍 SHOP NGÂN AN</h2>
-
-<p><b>Link web dự phòng</b> (dán Facebook / Zalo):</p>
-<p>
-  https://TEN-GITHUB.github.io/link-san-pham/ngan-an/
-</p>
+<h2>🏠 TRANG CỔNG PHÂN PHỐI</h2>
+<p><i>Dùng để quản lý – dự phòng link, không đăng Facebook</i></p>
 
 <hr>
 
-<button onclick="toggle()">🔽 Mở / Thu gọn danh sách sản phẩm</button>
+<h3>👧 3 SHOP CỦA CÁC BÉ</h3>
+<ul>
+  <li><a href="ngan-an/">Shop Ngân An</a></li>
+  <li><a href="minh-chau/">Shop Minh Châu</a></li>
+  <li><a href="bich-ngoc/">Shop Bích Ngọc</a></li>
+</ul>
 
-<div id="khuSanPham" style="display:none">
+<hr>
 
-  <!-- ⚠️ TỐI ĐA 25 SẢN PHẨM -->
+<h3>🏡 CÁC NHÀ / CÁC NGƯỜI KHÁC</h3>
+<ul>
+  <!-- TỪ NHÀ 01 ĐẾN 32 -->
+  <li><a href="nha-01/">Nhà 01</a></li>
+  <li><a href="nha-02/">Nhà 02</a></li>
+  <li><a href="nha-03/">Nhà 03</a></li>
+  <li><a href="nha-04/">Nhà 04</a></li>
+  <li><a href="nha-05/">Nhà 05</a></li>
+  <li><a href="nha-06/">Nhà 06</a></li>
+  <li><a href="nha-07/">Nhà 07</a></li>
+  <li><a href="nha-08/">Nhà 08</a></li>
+  <li><a href="nha-09/">Nhà 09</a></li>
+  <li><a href="nha-10/">Nhà 10</a></li>
 
-  <div class="ke">
-    <b>Sản phẩm 1</b><br>
-    <a href="LINK-SHOPEE-1" target="_blank">Mở Shopee</a>
-  </div>
+  <!-- CỨ COPY THÊM ĐẾN 32 -->
+  <!-- hoặc 106 nếu muốn -->
+</ul>
 
-  <div class="ke">
-    <b>Sản phẩm 2</b><br>
-    <a href="LINK-SHOPEE-2" target="_blank">Mở Shopee</a>
-  </div>
+<hr>
 
-  <div class="ke">
-    <b>Sản phẩm 3</b><br>
-    <a href="LINK-SHOPEE-3" target="_blank">Mở Shopee</a>
-  </div>
-
-  <!-- copy thêm kệ, nhưng KHÔNG vượt quá 25 -->
-
-</div>
-
-<script>
-function toggle(){
-  const k = document.getElementById("khuSanPham");
-  k.style.display = (k.style.display === "none") ? "block" : "none";
-}
-</script>
+<p><b>Ghi chú:</b></p>
+<ul>
+  <li>Mỗi link = 1 thư mục riêng</li>
+  <li>Mỗi trang con ≤ 25 sản phẩm</li>
+  <li>Trang cổng chỉ để mở & kiểm tra link</li>
+</ul>
 
 </body>
 </html>
