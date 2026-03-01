@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Shop Minh Châu</title>
+<style>
+body{font-family:Arial;margin:10px}
+.kệ{border:1px solid #ddd;padding:10px;margin-bottom:10px}
+</style>
+</head>
+
+<body>
+
+<h2>🛍 Shop Minh Châu</h2>
+<div id="shelves">Đang tải sản phẩm…</div>
+
+<script>
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSISgWZP_lSeRHn_QtUZB_Yro-ns2L0LGJhfCbnkRq1iiT0jqlmLTVfu96GI-ROc_qF3pcwZOWhjpLS/pub?gid=1175660321&single=true&output=csv";
+
+fetch(CSV_URL)
+  .then(res => res.text())
+  .then(text => {
+    const rows = text.trim().split("\n");
+    const data = rows.slice(1); // bỏ header
+
+    let html = "";
+
+    data.slice(0, 4).forEach((row, i) => {
+      const c = row.split(",");
+
+      const name  = c[1] || "Chưa có tên";
+      const price = c[2] || "";
+      const link  = c[4] || "#";
+
+      html += `
+        <div class="kệ">
+          <b>Kệ ${i+1}</b><br>
+          ${name} – ${price}<br>
+          <a href="${link}" target="_blank">👉 Mua</a>
+        </div>
+      `;
+    });
+
+    if(html === ""){
+      html = "<i>Chưa có sản phẩm</i>";
+    }
+
+    document.getElementById("shelves").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("shelves").innerHTML = "Lỗi tải dữ liệu";
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>
